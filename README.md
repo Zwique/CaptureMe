@@ -17,7 +17,7 @@ This project serves as an example of how to handle **secure file uploads** and *
 ## Installation Instructions
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/zwique/captureme.git
+   git clone https://github.com/zwique/CaptureMe.git
    cd cybersecurity-photo-capture-app
    ```
 2. **Set up a Virtual Environment (optional but recommended):**
