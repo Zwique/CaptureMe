@@ -18,7 +18,7 @@ This project serves as an example of how to handle **secure file uploads** and *
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/zwique/CaptureMe.git
-   cd cybersecurity-photo-capture-app
+   cd CaptureMe
    ```
 2. **Set up a Virtual Environment (optional but recommended):**
    - It's a good practice to create a virtual environment to isolate your project dependencies:
