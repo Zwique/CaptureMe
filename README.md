@@ -43,7 +43,10 @@ This project serves as an example of how to handle **secure file uploads** and *
    python app.py
    ```
 6. **Access**:
-   - Scan the QR code on your phone to open the app. Then, grant the necessary permissions to allow the app to capture a photo using your phone's front camera.
+   - Ensure that both your computer and mobile device are connected to the **same internet** network (Wi-Fi or local network) for the QR code functionality to work correctly.
+   - Scan the QR code displayed in the terminal on your phone to open the app.
+   - Grant the necessary permissions to allow the app to capture a photo using your phone’s camera.
+     
 8. **Check Saved Photos**:
    - Once a photo is captured, it will be uploaded to the server and saved in the photos/ directory with an incremented filename (e.g., captured_photo1.jpg, captured_photo2.jpg, etc.).
 
