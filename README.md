@@ -43,7 +43,6 @@ This project serves as an example of how to handle **secure file uploads** and *
    python app.py
    ```
 6. **Access**:
-   - Ensure that both your computer and mobile device are connected to the **same internet** network (Wi-Fi or local network) for the QR code functionality to work correctly.
    - Scan the QR code displayed in the terminal on your phone to open the app.
    - Grant the necessary permissions to allow the app to capture a photo using your phone’s camera.
      
