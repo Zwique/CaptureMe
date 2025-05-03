@@ -51,7 +51,7 @@ def save_photo_route():
         try:
             saved_filename = save_photo(photo)
             if saved_filename:
-                return f"Photo saved as {saved_filename}"
+                return f"GG. You're Done :)"
             else:
                 return jsonify({"error": "Failed to save photo."}), 500
         except Exception as e:
